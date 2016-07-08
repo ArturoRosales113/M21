@@ -1,0 +1,127 @@
+    /**
+************** 
+-=- 
+TEMA:M21 FLEX
+Desarrolado por: Arturo Pérez Rosales (arturo@emc2.mx) ft. Sebastián Romo
+Para: Bola de Oro Sa.de CV
+
+EMC2 ·No hacemos las cosas mejor, hacemos mejores cosas·
+
+-=-
+**************
+**/
+/** ************** -=> Fuentes <=- ************** **/
+
+@font-face {
+    font-family: 'GillsansBold';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../fuentes/GillSans-Bold/GillSans-Bold.otf');
+    src: local('☺'), url('../fuentes/GillSans-Bold/GillSans-Bold.woff') format('woff'), url('../fuentes/GillSans-Bold/GillSans-Bold.ttf') format('truetype'), url('../fuentes/GillSans-Bold/GillSans-Bold.svg') format('svg');
+}
+
+@font-face {
+    font-family: 'GilsansLight';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../fuentes/GillSans-Light/GillSans-Light.eot');
+    src: local('☺'), url('../fuentes/GillSans-Light/GillSans-Light.woff') format('woff'), url('../fuentes/GillSans-Light/GillSans-Light.ttf') format('truetype'), url('../fuentes/GillSans-Light/GillSans-Light.svg') format('svg');
+}
+
+@font-face {
+    font-family: 'MReaves';
+    font-weight: normal;
+    font-style: normal;
+    src: url('../fuentes/Mrs-Eaves-OT-Bold/Mrs-Eaves-OT-Bold.eot');
+    src: local('☺'), url('../fuentes/Mrs-Eaves-OT-Bold/Mrs-Eaves-OT-Bold.woff') format('woff'), url('../fuentes/Mrs-Eaves-OT-Bold/Mrs-Eaves-OT-Bold.ttf') format('truetype'), url('../fuentes/Mrs-Eaves-OT-Bold/Mrs-Eaves-OT-Boldsvg') format('svg');
+}
+/** colores **/
+
+
+/** ************** -=> CLASES <=- ************** **/
+/**     GENERAL     **/
+
+
+/**     TEXTOS      **/
+
+.gillsansbold {
+    font-family: 'GillsansBold';
+    text-transform:uppercase;
+    letter-spacing:.05em;
+}
+
+.gillsanslight {
+    font-family: 'GilsansLight';
+    letter-spacing:.09em;
+}
+
+.mreaves {
+    font-family: 'MReaves';
+}
+
+.nopadding{
+    padding: 0 !important;
+}
+
+.costilla{
+    margin-top: -60px;
+}
+.maparesponsivo{
+    height:100vh;
+    width:100%;
+}
+.proyectotextos{
+    height:100%;
+}
+/**     CIUDADES        **/
+
+
+
+/** ************** -=> MEDIA QUERIES <=- ************** **/
+
+@media screen and (max-width: 1024px) {
+
+}
+
+@media screen and (max-width: 1023px) {
+
+}
+
+@media screen and (max-width: 768px) {
+    .flexcontainer div{
+       -webkit-flex: 1 1 50%;
+       -moz-flex: 1 1  50%;
+       -ms-flex: 1 1 50%;
+       -o-flex: 1 1 50%;
+       flex: 1 1 50%;
+   }
+   .stroreforeachcycle {
+    margin-bottom: 40px;
+    }
+    .maparesponsivo{
+        height:512px;
+        width:100%;
+    }
+    .costilla{
+        margin:0;
+    }
+
+}
+@media screen and (max-width: 600px) {
+
+
+    #cercadeti div{
+        height:150px;
+    }
+    .modal-trigger{
+        padding-bottom:0;
+    }
+    .maparesponsivo{
+        height:240px;
+        width:100%;
+    }
+    .costilla{
+        margin:0;
+    }
+
+}

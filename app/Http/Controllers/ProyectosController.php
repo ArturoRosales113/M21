@@ -46,15 +46,15 @@ class ProyectosController extends Controller {
 		$p -> size =$request->size;
 		$p -> category =$request->category;
 			
-			// Foto de Portada
-			$portada = Input::file('imgPortada');
-			$portadaName = str_random(12).'.'.$portada->getClientOriginalExtension();
-			$portadaImg = Image::make($portada);
-			$portadaPath = 'imagenes/proyecto/'.$portadaName;
-			$portadaImg->save($portadaPath);
-			// Foto de Portada
+		// 	// Foto de Portada
+		// 	$portada = Input::file('imgPortada');
+		// 	$portadaName = str_random(12).'.'.$portada->getClientOriginalExtension();
+		// 	$portadaImg = Image::make($portada);
+		// 	$portadaPath = 'imagenes/proyecto/'.$portadaName;
+		// 	$portadaImg->save($portadaPath);
+		// 	// Foto de Portada
 
-		$p ->imgPortada =$portadaPath;
+		// $p ->imgPortada =$portadaPath;
 			// Fotos Poryecto
 			$images = Input::file('images');
 			$img_paths = array();	
@@ -79,7 +79,35 @@ class ProyectosController extends Controller {
 	 */
 	public function show($id)
 	{
-		//
+		//Obtenemos el Proyectos
+		$proyecto = Proyectos::Find($id);
+
+		//Pasamos el json a array() en una variable
+		$paths_decodificados = json_decode($proyecto->img_paths);
+
+		//Ya que están combertidos en arreglo, accesamos a cada elemento de este con un índice
+		$paths_decodificados[0]; //También podría ser $proyecto_decodificado[1], $proyecto_decodificado[2], etc.
+
+		//Si lo que quieres iterar todo el arreglo con un ciclo foreach
+		foreach ($paths_decodificados as $path) {
+			// Hacer algo con $path
+		}
+
+		//Para que veas que queda en cada variable
+		//dd($paths_decodificados[0]);
+		//dd($paths_decodificados[1]);
+		//dd($paths_decodificados[2]);
+		dd($paths_decodificados);
+
+		/*
+			Toma en cuenta que por lo general lo que quieres es mandar
+			el proyecto completo a la vista y en ella decodificar
+			el json.
+		*/
+
+		//Regresa la vista que quieras con el proyecto completo, ya en 
+		//la vista decodificas el json
+		return view('backend.proyectos.show', ['proyecto' => $proyecto]);////
 	}
 
 	/**

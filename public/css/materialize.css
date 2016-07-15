@@ -9879,9 +9879,12 @@ select:disabled {
 
 .file-field .btn,
 .file-field .btn-large {
-    float: left;
-    height: 3rem;
-    line-height: 3rem;
+    display:block;
+    margin:auto;
+    width:10rem;
+    height: 5rem;
+    line-height: 5rem;
+    text-align: center;
 }
 
 .file-field span {

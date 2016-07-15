@@ -90,7 +90,7 @@ EMC2 ·No hacemos las cosas mejor, hacemos mejores cosas·
     border-radius:.4em;
 }
 .unmargen{
-    margin:em;
+    margin:1em;
 }
 img.image-backend{
     display:block;
@@ -134,5 +134,11 @@ img.image-backend{
         margin:0;
     }
 
+    img.image-backend{
+    display:block;
+    margin:auto;
+    max-height:200px;
+    width:auto;
+}
 
 }

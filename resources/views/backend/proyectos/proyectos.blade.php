@@ -38,7 +38,7 @@
 		</div>
 
 		<div class="row gris2">
-			<div class="col s6 unmargen m4 center-align grey1 refinado">
+			<div class="col s6 m4 center-align grey1 refinado">
 				<div class="section">
 					<span class="gillsansbold">
 						Categoría
@@ -50,7 +50,7 @@
 				</div>
 			</div>
 
-			<div class="col s6 unmargen m4 center-align grey1 refinado">
+			<div class="col s6 m4 center-align grey1 refinado">
 				<div class="section">
 					<span class="gillsansbold">
 						Tamaño
@@ -62,7 +62,7 @@
 				</div>
 			</div>
 
-			<div class="col s6 unmargen m4 center-align grey1 refinado">
+			<div class="col s12 m4 center-align grey1 refinado">
 				<div class="section">
 					<span class="gillsansbold">
 						Año
@@ -76,19 +76,23 @@
 		</div>
 		<div class="row gris1 valign-wrapper">
 			<div class="col s12 m7 valign">
-				<section>
-					<h6 class="gillsansbold right-align">Acciones</h6>
-				</section>
+					<div class="section">
+						<h6 class="gillsansbold center-align">Acciones</h6>	
+					</div>
 			</div>
 			<div class="col s12 m5">
 				<div class="row valign-wrapper section">
 					<div class="col s12 m6 center-align valign">
-					{!! Form::open(array('route' => array('backend.proyectos.destroy', $p->id), 'method' => 'delete','onsubmit' => 'return confirm("Eliminar '.$p->title.'?");')) !!}
-						{!! Form::submit('Eliminar', array('class'=>'btn gris2')) !!}
+					<div class="section">
+						{!! Form::open(array('route' => array('backend.proyectos.destroy', $p->id), 'method' => 'delete','onsubmit' => 'return confirm("Eliminar '.$p->title.'?");')) !!}
+						{!! Form::submit('Eliminar', array('class'=>'btn-large gris2')) !!}
 						{!! Form::close() !!}
 					</div>
+					</div>
 					<div class="col s12 m6 center-align">
-						<a href="{{ url('backend/proyectos/'.$p->id.'/edit') }}" class="btn gris2">editar</a>
+						<div class="section">
+							<a href="{{ url('backend/proyectos/'.$p->id.'/edit') }}" class="btn-large gris2">editar</a>
+						</div>
 					</div>
 					
 				</div>

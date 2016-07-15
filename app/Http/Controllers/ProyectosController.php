@@ -59,7 +59,7 @@ class ProyectosController extends Controller {
 			$images = Input::file('images');
 			$img_paths = array();	
 				foreach ($images as $image) {
-					$imgName = $image->getClientOriginalName().'.'.str_random(4).'.'.$image->getClientOriginalExtension();
+					$imgName = $image->str_random(4).getClientOriginalName();
 					$i = Image::make($image);
 					$fullPath = 'imagenes/proyecto/'.$imgName;
 					$i->save($fullPath);

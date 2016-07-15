@@ -64,7 +64,7 @@ EMC2 ·No hacemos las cosas mejor, hacemos mejores cosas·
 }
 
 .costilla{
-    margin-top: -60px;
+    margin-top: -30px;
 }
 .maparesponsivo{
     height:100vh;
@@ -73,10 +73,31 @@ EMC2 ·No hacemos las cosas mejor, hacemos mejores cosas·
 .proyectotextos{
     height:100%;
 }
-/**     CIUDADES        **/
-
-
-
+/**     Colores        **/
+.gris1{
+    background-color:#99999a;
+}
+.gris2{
+    background-color:#55565a;
+}
+.grey1{
+    color:#99999a;
+}
+.grey2{
+    color:#55565a;
+}
+.refinado{
+    border-radius:.4em;
+}
+.unmargen{
+    margin:em;
+}
+img.image-backend{
+    display:block;
+    margin:auto;
+    max-height:400px;
+    width:auto;
+}
 /** ************** -=> MEDIA QUERIES <=- ************** **/
 
 @media screen and (max-width: 1024px) {
@@ -88,16 +109,8 @@ EMC2 ·No hacemos las cosas mejor, hacemos mejores cosas·
 }
 
 @media screen and (max-width: 768px) {
-    .flexcontainer div{
-       -webkit-flex: 1 1 50%;
-       -moz-flex: 1 1  50%;
-       -ms-flex: 1 1 50%;
-       -o-flex: 1 1 50%;
-       flex: 1 1 50%;
-   }
-   .stroreforeachcycle {
-    margin-bottom: 40px;
-    }
+
+
     .maparesponsivo{
         height:512px;
         width:100%;
@@ -110,9 +123,6 @@ EMC2 ·No hacemos las cosas mejor, hacemos mejores cosas·
 @media screen and (max-width: 600px) {
 
 
-    #cercadeti div{
-        height:150px;
-    }
     .modal-trigger{
         padding-bottom:0;
     }
@@ -123,5 +133,6 @@ EMC2 ·No hacemos las cosas mejor, hacemos mejores cosas·
     .costilla{
         margin:0;
     }
+
 
 }

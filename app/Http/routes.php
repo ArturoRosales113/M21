@@ -10,10 +10,10 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::get('/', 'FrontController@getIndex');
+Route::controller('home', 'FrontController');
 
-Route::controller('/', 'FrontController');
-
-Route::resource('/poyectos', 'ProyectosController');
+Route::resource('backend/proyectos', 'ProyectosController');
 
 
 Route::controllers([

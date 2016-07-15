@@ -29,7 +29,7 @@
   @yield('contenido')
 </main>
 <footer>
-  @include('footer') 
+@yield('footer')
 </footer>
 @include('scripts')
 @yield('specialscripts')

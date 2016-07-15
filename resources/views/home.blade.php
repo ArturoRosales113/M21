@@ -33,6 +33,4 @@ Home
 		</ul>
 	</div>
 </div>
-
-
 @endsection

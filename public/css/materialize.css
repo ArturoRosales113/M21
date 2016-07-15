@@ -2934,6 +2934,10 @@ video.responsive-video {
     margin: auto;
 }
 
+img.responsive-img.backend{
+    max-height:300px!important;
+}
+
 .pagination li {
     display: inline-block;
     font-size: 1.2rem;
@@ -7603,7 +7607,7 @@ input[type=range] + .thumb {
 
 nav {
     color: #fff;
-    background-color: #transparent;
+    background-color: transparent;
     width: 100%;
     line-height: 56px;
 }
@@ -7643,8 +7647,8 @@ nav .button-collapse {
 }
 
 nav .button-collapse i {
-    font-size: 2.7rem;
-    height: 56px;
+    font-size: 2rem;
+    height: 26px;
     line-height: 56px;
 }
 
@@ -7654,7 +7658,7 @@ nav .brand-logo {
     font-size: 2.1rem;
     margin:5px 5px;
     white-space: nowrap;
-    max-height:64px;
+    max-height:54px;
 }
 nav .brand-logo span{
     
@@ -7694,7 +7698,7 @@ nav .brand-logo.right {
 
 nav ul {
     margin: 0;
-    display:flex;
+    display:block;
     align-items: center;
 }
 
@@ -7710,12 +7714,12 @@ nav ul li.active {
 
 nav ul a {
     transition:.5s ease-in-out;
-    font-size: 1rem;
+    font-size: .7rem;
     color: #fff;
     display: block;
     padding: 20px 20px;
     cursor: pointer;
-    line-height:1em;
+    line-height:.5em;
     text-align:center;
 
 }
@@ -7782,7 +7786,7 @@ nav .input-field label.active {
 .navbar-fixed {
     position: relative;
     height: 56px;
-    margin-bottom:80px;
+    margin-bottom:10px;
     z-index: 998;
 }
 
@@ -7803,7 +7807,7 @@ nav .input-field label.active {
     }
     
     nav .brand-logo{
-        height: 1.5em;
+        height: 1.2em;
     }
 }
 
@@ -7827,17 +7831,20 @@ html {
     html {
         font-size: 15px;
     }
+    .navbar-fixed{
+        margin-bottom:30px;
+    }
 
     nav .brand-logo{
-        height:3rem;
+        height:2rem;
     }
 
    
      nav,
     nav a.button-collapse,
     nav a.button-collapse i {
-        height: 70px;
-        line-height: 80px;
+        height: 45px;
+        line-height: 50px;
     }
 
 }
@@ -7854,7 +7861,7 @@ html {
         font-size: 20px;
     }
     nav .brand-logo{
-        height:2.5rem;
+        height:1.6rem;
     }
 }
 
@@ -8039,7 +8046,7 @@ footer.page-footer .footer-copyright {
     margin: auto;
 }
 
-card .card-image span .card-title {
+.card .card-image span .card-title {
     color: #fff;
     position: absolute;
     bottom: 0;
@@ -8349,7 +8356,7 @@ card .card-image span .card-title {
 
 .btn:hover,
 .btn-large:hover {
-    background-color: #412818;
+    background-color: #55565a;
 }
 
 .btn-floating {
@@ -9067,8 +9074,8 @@ input[type=tel]:focus:not([readonly]),
 input[type=number]:focus:not([readonly]),
 input[type=search]:focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-    border-bottom: 1px solid #e57200;
-    box-shadow: 0 1px 0 0 #e57200;
+    border-bottom: 1px solid #55565a;
+    box-shadow: 0 1px 0 0 #55565a;
 }
 
 input:not([type]):focus:not([readonly]) + label,
@@ -9083,7 +9090,7 @@ input[type=tel]:focus:not([readonly]) + label,
 input[type=number]:focus:not([readonly]) + label,
 input[type=search]:focus:not([readonly]) + label,
 textarea.materialize-textarea:focus:not([readonly]) + label {
-    color: #412818;
+    color: #55565a;
 }
 
 input:not([type]).valid,
@@ -9226,19 +9233,22 @@ textarea.materialize-textarea + label:after {
 }
 
 .input-field label {
-    color: #e57200;
+    color: #55565a;
     position: absolute;
     top: 0.8rem;
     left: 0.75rem;
     font-size: 1.5rem;
     cursor: text;
+    letter-spacing:.1em;
     transition: .2s ease-out;
+
 }
 
 .input-field label.active {
     font-size: 1rem;
     -webkit-transform: translateY(-140%);
     transform: translateY(-140%);
+
 }
 
 .input-field .prefix {
@@ -9329,7 +9339,7 @@ textarea.materialize-textarea {
     padding: 1.6rem 0;
     /* prevents text jump on Enter keypress */
     resize: none;
-    min-height: 3rem;
+    min-height: 10rem;
 }
 
 .hiddendiv {
@@ -10117,9 +10127,7 @@ select {
     overflow-y: auto;
     will-change: left;
 }
-ul .side-nav {
-    display:block;
-}
+
 
 .side-nav.right-aligned {
     will-change: right;
@@ -10794,7 +10802,8 @@ ul .side-nav {
     padding:20pt 20pt;
     opacity: 0;
     border-radius: .25em;
-    background-color:rgba(153,153,154,.9);
+    background-color:rgba(85,86,90,.8);
+  mix-blend-mode:hard-light;
 
 }
 .slider .slides li .captionmovil {
@@ -10857,7 +10866,7 @@ ul .side-nav {
     overflow: hidden;
     position: relative;
     width: 100%;
-    height: 400px;
+    height:600px;
     -webkit-perspective: 500px;
     perspective: 500px;
     -webkit-transform-style: preserve-3d;
@@ -10865,6 +10874,17 @@ ul .side-nav {
     -webkit-transform-origin: 0% 50%;
     transform-origin: 0% 50%;
 }
+@media screen and (max-width: 768px){
+    .carousel{
+        height:500px;
+    }
+}
+@media screen and (max-width: 600px){
+    .carousel{
+        height:250px;
+    }
+}
+
 
 .carousel .carousel-item {
     width: 200px;

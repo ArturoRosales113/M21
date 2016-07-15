@@ -63,4 +63,9 @@ class FrontController extends Controller {
 		return view('mata');
 	}
 
+	public function getAgrosan()
+	{
+		return view('agrosan');
+	}
+
 }

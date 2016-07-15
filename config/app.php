@@ -39,7 +39,7 @@ return [
 	|
 	*/
 
-	'timezone' => 'UTC',
+	'timezone' => 'America/Mexico_City',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -149,7 +149,7 @@ return [
 		 * User Providers...
 		 */
     	'Collective\Html\HtmlServiceProvider',	// HTML
-		'Intervention\Image\ImageServiceProvider', // Intervention
+		'Intervention\Image\ImageServiceProvider' // Intervention
 
 	],
 
@@ -198,6 +198,15 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
+
+		
+
+		/*
+		 * User aliases (revisar la coma)...
+		 */
+		'Form' => 'Collective\Html\FormFacade',
+      	'Html' => 'Collective\Html\HtmlFacade',
+      	'Image' => 'Intervention\Image\Facades\Image'
 
 	],
 

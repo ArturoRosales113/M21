@@ -2,8 +2,10 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
+use Input;
+use Intervention\Image\Facades\Image;
+use App\Proyectos;
 
 class ProyectosController extends Controller {
 
@@ -14,7 +16,9 @@ class ProyectosController extends Controller {
 	 */
 	public function index()
 	{
-		return view('proyectos');//
+		$proyectos = Proyectos::all();
+
+		return view('backend.proyectos.proyectos', ['proyectos' => $proyectos]);//
 	}
 
 	/**
@@ -24,29 +28,8 @@ class ProyectosController extends Controller {
 	 */
 	public function create()
 	{
-		$this->validate($request, [
-			'title' 	=> 'required|unique:articles|max:255',
-			'content'	=> 'required',
-			'image' 	=> 'max:1024|required|image',
-			'author' 	=> '',
-			'tags' 	=> ''
-			]);
+		return view('backend.proyectos.create');
 
-
-		$imgName = str_random(10).'.'.Input::file('image')->getClientOriginalExtension();
-
-		$image = Image::make(Input::file('image'));
-		$image->save('images/articles/'.$imgName);
-		
-		$p = new Article;
-		$p->title = $request->title;
-		$p->content = $request->content;
-		$p->img_path = 'images/articles/'.$imgName;
-		$p->author = $request->author;
-		$p->tags = $request->tags;
-		$p->save();
-
-		return redirect('backend/article');//
 	}
 
 	/**
@@ -54,9 +37,38 @@ class ProyectosController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
-		//
+		$p = new Proyectos;
+		$p -> title =$request->title;
+		$p -> content =$request->content;
+		$p -> year =$request->year;
+		$p -> size =$request->size;
+		$p -> category =$request->category;
+			
+			// Foto de Portada
+			$portada = Input::file('imgPortada');
+			$portadaName = str_random(12).'.'.$portada->getClientOriginalExtension();
+			$portadaImg = Image::make($portada);
+			$portadaPath = 'imagenes/proyecto/'.$portadaName;
+			$portadaImg->save($portadaPath);
+			// Foto de Portada
+
+		$p ->imgPortada =$portadaPath;
+			// Fotos Poryecto
+			$images = Input::file('images');
+			$img_paths = array();	
+				foreach ($images as $image) {
+					$imgName = $image->getClientOriginalName().'.'.str_random(4).'.'.$image->getClientOriginalExtension();
+					$i = Image::make($image);
+					$fullPath = 'imagenes/proyecto/'.$imgName;
+					$i->save($fullPath);
+					array_push($img_paths, $fullPath);
+			}			
+		$p -> img_paths =json_encode($img_paths);
+		$p->save();
+		return redirect('backend/proyectos');
+		
 	}
 
 	/**
@@ -78,7 +90,8 @@ class ProyectosController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$proyecto = Proyectos::Find($id);
+		return view('backend.proyectos.edit', ['proyecto' => $proyecto]);////
 	}
 
 	/**
@@ -89,7 +102,8 @@ class ProyectosController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$proyecto = Proyectos::Find($id);
+
 	}
 
 	/**
@@ -100,7 +114,12 @@ class ProyectosController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$proyecto = Proyectos::Find($id);
+		//$img = Image::make($product->img_path);
+		//$img->destroy();
+		//dd($img);
+		$proyecto->delete();
+		return redirect('backend/proyectos');//
 	}
 
 }

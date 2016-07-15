@@ -12,12 +12,16 @@ class CreateProyectosTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('banners', function(Blueprint $table)
+		Schema::create('proyectos', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('title');
-			$table->string('img_path');
+			$table->string('imgPortada');
+			$table->json('img_paths');
 			$table->string('content');
+			$table->string('year');
+			$table->string('size');
+			$table->string('category');
 			$table->timestamps();
 		});
 		//
@@ -30,7 +34,7 @@ class CreateProyectosTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('proyectos');//
 	}
 
 }

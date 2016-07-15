@@ -26,26 +26,31 @@
    @include('menu')
  </header>
  <main>
-  <div class="row">
-    <div class="col s12 m12 l4 proyectotextos">
-      <h5 class="gillsansbold container">@yield('nombreproyecto')</h5>
-      <div class="divider container"></div>
-      <div class="section">
-        <p class="flow-text container">
-          @yield('descripcionproyecto')
-        </p>
-      </div>
+  <div class="row valign-wrapper">
+    <div class="col s12 m4 valign">
+      <div class="row">
+       <div class="col s12 m10 offset-m1">
+        <h5 class="gillsansbold grey2 container">@yield('nombreproyecto')</h5>
+        <div class="section">
+          <div class="divider container"></div>
+        </div>
+        <div class="section">
+          <p class="flow-text container">
+            @yield('descripcionproyecto')
+          </p>
+        </div>
 
-      <div class="section container">
-      <span class="gillsansbold">Año:  </span><span>@yield('yearconstruccion')</span>
-        <br>
-        <span class="gillsansbold">Mt2:  </span><span>@yield('mtsconstruccion')</span>
+        <div class="section container">
+          <span class="gillsansbold">Año:  </span><span>@yield('yearconstruccion')</span>
+          <br>
+          <span class="gillsansbold">Mt2:  </span><span>@yield('mtsconstruccion')</span>
+        </div>
       </div>
     </div>
-    <div class="col s12 m12 l8 no-padding costilla">
-     <div class="carousel carousel-slider">
-      @yield('fotosproyecto')
-    </div>
+  </div>
+  <div class="col s12 m8">
+  
+    @yield('fotosproyecto')
 
   </div>
 </div>

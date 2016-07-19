@@ -50,8 +50,7 @@
 									<div class="file-field input-field">
 										<div class="btn gris2">
 											<span>Portada</span>
-											{!! Form::file('imgPortada', array('multiple'=>false))
-											 !!}
+											{!! Form::file('imgPortada') !!}
 										</div>
 									
 									</div>

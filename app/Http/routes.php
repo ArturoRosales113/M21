@@ -14,6 +14,7 @@ Route::get('/', 'FrontController@getIndex');
 Route::controller('home', 'FrontController');
 
 Route::resource('backend/proyectos', 'ProyectosController');
+Route::resource('backend/blog', 'BlogController');
 
 
 Route::controllers([

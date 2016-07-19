@@ -73,12 +73,28 @@ EMC2 ·No hacemos las cosas mejor, hacemos mejores cosas·
 .proyectotextos{
     height:100%;
 }
+.parallaxlink{
+    height:100%;
+    background-color:;
+    border-left:1pt solid #55565a;
+    line-height: 50pt;
+    padding-left:10pt;
+    color:#55565a;
+    transition:.5s ease-out;
+}
+.parallaxlink:hover{
+    letter-spacing:.2em;
+    color:white;
+}
 /**     Colores        **/
 .gris1{
     background-color:#99999a;
 }
 .gris2{
     background-color:#55565a;
+}
+.transp{
+    background-color:rgba(85, 86, 90, .95)!important;
 }
 .grey1{
     color:#99999a;
@@ -92,12 +108,19 @@ EMC2 ·No hacemos las cosas mejor, hacemos mejores cosas·
 .unmargen{
     margin:1em;
 }
-img.image-backend{
-    display:block;
-    margin:auto;
-    max-height:400px;
-    width:auto;
+.image-backend-wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
 }
+img.image-backend{
+    flex-shrink:0;
+    min-width:100%;
+    max-height:500px;
+}
+
+
 /** ************** -=> MEDIA QUERIES <=- ************** **/
 
 @media screen and (max-width: 1024px) {

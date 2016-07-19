@@ -27,7 +27,7 @@
  </header>
  <main>
   <div class="row valign-wrapper">
-    <div class="col s12 m4 valign">
+    <div class="col s12 l4 valign">
       <div class="row">
        <div class="col s12 m10 offset-m1">
         <h5 class="gillsansbold grey2 container">@yield('nombreproyecto')</h5>
@@ -48,9 +48,11 @@
       </div>
     </div>
   </div>
-  <div class="col s12 m8">
+  <div class="col s12 l8">
   
-    @yield('fotosproyecto')
+<div class="carousel carousel-slider">
+      @yield('fotosproyecto')
+</div>
 
   </div>
 </div>

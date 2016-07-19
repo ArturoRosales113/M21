@@ -9,6 +9,8 @@ use App\Proyectos;
 
 class ProyectosController extends Controller {
 
+
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -39,32 +41,31 @@ class ProyectosController extends Controller {
 	 */
 	public function store(Request $request)
 	{
+		$images = Input::file('images');
+		$img_paths = array();	
+		foreach ($images as $image) {
+			$imgName = $image->getClientOriginalName();
+			$i = Image::make($image);
+			$fullPath = 'imagenes/proyecto/'.$imgName;
+			$i->save($fullPath);
+			array_push($img_paths, $fullPath);
+		}
+				// Foto de Portada
+		$portada = Input::file('imgPortada');
+		$portadaName = $portada->getClientOriginalName();
+		$portadaImg = Image::make($portada);
+		$portadaPath = 'imagenes/proyecto/'.$portadaName;
+		$portadaImg->save($portadaPath);
+			// Foto de Portada
+		
+		
 		$p = new Proyectos;
 		$p -> title =$request->title;
 		$p -> content =$request->content;
 		$p -> year =$request->year;
 		$p -> size =$request->size;
 		$p -> category =$request->category;
-			
-		// 	// Foto de Portada
-		// 	$portada = Input::file('imgPortada');
-		// 	$portadaName = str_random(12).'.'.$portada->getClientOriginalExtension();
-		// 	$portadaImg = Image::make($portada);
-		// 	$portadaPath = 'imagenes/proyecto/'.$portadaName;
-		// 	$portadaImg->save($portadaPath);
-		// 	// Foto de Portada
-
-		// $p ->imgPortada =$portadaPath;
-			// Fotos Poryecto
-			$images = Input::file('images');
-			$img_paths = array();	
-				foreach ($images as $image) {
-					$imgName = $image->str_random(4).getClientOriginalName();
-					$i = Image::make($image);
-					$fullPath = 'imagenes/proyecto/'.$imgName;
-					$i->save($fullPath);
-					array_push($img_paths, $fullPath);
-			}			
+		$p ->imgPortada =$portadaPath;
 		$p -> img_paths =json_encode($img_paths);
 		$p->save();
 		return redirect('backend/proyectos');
@@ -97,7 +98,7 @@ class ProyectosController extends Controller {
 		//dd($paths_decodificados[0]);
 		//dd($paths_decodificados[1]);
 		//dd($paths_decodificados[2]);
-		dd($paths_decodificados);
+		//dd($paths_decodificados);
 
 		/*
 			Toma en cuenta que por lo general lo que quieres es mandar
@@ -119,7 +120,9 @@ class ProyectosController extends Controller {
 	public function edit($id)
 	{
 		$proyecto = Proyectos::Find($id);
-		return view('backend.proyectos.edit', ['proyecto' => $proyecto]);////
+		$paths_decodificados = json_decode($proyecto->img_paths);
+		//dd($proyecto);
+		return view('backend.proyectos.edit', ['proyecto' => $proyecto,'paths' => $paths_decodificados]);
 	}
 
 	/**
@@ -128,10 +131,10 @@ class ProyectosController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
-	{
-		$proyecto = Proyectos::Find($id);
-
+	public function update($id,Request $request)
+	{	
+		$proyecto = Proyectos::find($id);
+		
 	}
 
 	/**
@@ -143,9 +146,12 @@ class ProyectosController extends Controller {
 	public function destroy($id)
 	{
 		$proyecto = Proyectos::Find($id);
-		//$img = Image::make($product->img_path);
-		//$img->destroy();
-		//dd($img);
+		$paths_decodificados = json_decode($proyecto->img_paths);	
+		foreach ($paths_decodificados as $image) {
+			$fullPath = $image;
+			$i = Image::make($fullPath);
+			$i->destroy($fullPath);
+		}
 		$proyecto->delete();
 		return redirect('backend/proyectos');//
 	}

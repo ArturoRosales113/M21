@@ -30,7 +30,7 @@
  		$('.collapsible').collapsible({
  			accordion : true
  							});
-		$('#proyectosTA').val('');
+		$('#proyectosTA');
 		$('#proyectosTA').trigger('autoresize');
  	});
 
